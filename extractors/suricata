@@ -1,0 +1,18 @@
+{
+  "extractors": [
+    {
+      "title": "surricata_data",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "\\[Classification: %{DATA:suricata_msg}\\] \\[Priority: %{BASE10NUM:Priority}\\] \\{%{DATA:protocol}\\} %{IP:source_ip}:%{BASE10NUM:source_port} -> %{IP:target_ip}:%{BASE10NUM:target_port}"
+      },
+      "condition_type": "string",
+      "condition_value": "Classification"
+    }
+  ],
+  "version": "2.5.0"
