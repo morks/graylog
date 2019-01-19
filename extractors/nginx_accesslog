@@ -1,0 +1,14 @@
+    {
+      "title": "Nginx accesslogs",
+      "extractor_type": "grok",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "",
+      "extractor_config": {
+        "grok_pattern": "nginx: %{IP:source_ip} - %{DATA:uniq_id} .*\"GET %{DATA:uri} HTTP/1.1\" %{INT:return_code} %{INT:bytes} \"%{DATA:url}\" \"%{DATA:browser}\""
+      },
+      "condition_type": "string",
+      "condition_value": "nginx:"
+    },
