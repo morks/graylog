@@ -1,0 +1,21 @@
+{
+  "extractors": [
+    {
+      "title": "Puppet Runtime",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "numeric",
+          "config": {}
+        }
+      ],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "puppetRunTime",
+      "extractor_config": {
+        "regex_value": "^.*Applied catalog in ((\\d[0-9]{0,9}\\.[0-9]{0,9})) seconds"
+      },
+      "condition_type": "regex",
+      "condition_value": "Applied catalog in (\\d[0-9]{0,9}\\.[0-9]{0,9}) seconds"
+    }
